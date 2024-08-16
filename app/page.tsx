@@ -9,8 +9,10 @@ export default function Home() {
   return (
       <div className="p-12">
         <Container>
-          <HomeBanner />
-          <ProductList />
+          <Suspense fallback={<div>Loading...</div>}>
+            <HomeBanner />
+            <ProductList />
+          </Suspense>
         </Container>
       </div>
   )

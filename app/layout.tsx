@@ -8,7 +8,6 @@ import Footer from "@/app/components/Footer/Footer";
 import NavBar from "@/app/components/NavBar";
 import AuthProvider from "@/providers/AuthProvider";
 import { Suspense } from "react";
-import Loading from "./loading";
 
 const maven = Maven_Pro({ subsets: ["latin"] });
 

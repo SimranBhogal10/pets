@@ -4,6 +4,7 @@ import { getCategoriesWithIcons } from "@/utils/getCategories";
 
 import Category from "./Category";
 import Container from "./Container";
+import { Suspense } from "react";
 
 const Categories = () =>{
 
@@ -20,11 +21,13 @@ const Categories = () =>{
 
     return <div className="bg-white">
         <Container>
+        <Suspense fallback={<div>Loading...</div>}>
             <div className="p-2 flex flex-row items-center justify-between overflow-x-auto">
                 {categories.map((item)=>(
                     <Category key={item.categoryName} label={item.categoryName} icon={item.icon} selected={category == item.categoryName || (category==null && item.categoryName=='All')}/>
                 ))}
             </div>
+            </Suspense>
         </Container>
     </div>
 }

@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import queryString from "query-string";
-import { useCallback } from "react";
+import { Suspense, useCallback } from "react";
 import { IconType } from "react-icons";
 
 type CategoryProps={

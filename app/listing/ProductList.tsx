@@ -3,7 +3,7 @@
 import ProductCard from "@/app/components/ProductCard";
 import { ProductData } from "@/global.types";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 
 type Product = {
     id: number;
@@ -46,11 +46,13 @@ const ProductList = () => {
       }, [category, router]);
 
     return (
+      <Suspense fallback={<div>Loading...</div>}>
             <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8 justify-items-center">
                 {products.map((product: ProductData) => 
                     <li key={product.id}><ProductCard data={product}/></li>
                 )}
             </ul>
+            </Suspense>
     )
 }
 

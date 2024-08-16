@@ -10,6 +10,7 @@ import CartCount from "./CartCount";
 import Categories from "./Categories";
 import Container from "./Container";
 import UserMenu from "./UserMenu";
+import { Suspense } from "react";
 
 const NavBar = () => {
 
@@ -31,7 +32,9 @@ const NavBar = () => {
                 </div>
             </Container>
         </div>
-        <Categories />
+        <Suspense fallback={<div>Loading...</div>}>
+            <Categories />
+        </Suspense>
     </div>
     </AuthProvider>
     )
