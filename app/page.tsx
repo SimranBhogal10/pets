@@ -6,12 +6,10 @@ import { Suspense } from "react";
 import { NextResponse } from "next/server";
 export default async function Home() {
 
-  const CLOUD_STORAGE_URL = process.env.NEXT_PUBLIC_CLOUD_STORAGE_URL;
-
-  if(!CLOUD_STORAGE_URL){
+  if(!process.env.NEXT_PUBLIC_CLOUD_STORAGE_URL){
     return NextResponse.error();
   }
-  const productData = await fetch(CLOUD_STORAGE_URL);
+  const productData = await fetch(process.env.NEXT_PUBLIC_CLOUD_STORAGE_URL);
   const data = await productData.json();
   return (
       <div className="p-12">
