@@ -9,7 +9,9 @@ export default async function Home() {
   if(!process.env.NEXT_PUBLIC_CLOUD_STORAGE_URL){
     return NextResponse.error();
   }
-  const productData = await fetch(process.env.NEXT_PUBLIC_CLOUD_STORAGE_URL);
+  const productData = await fetch(process.env.NEXT_PUBLIC_CLOUD_STORAGE_URL,{
+    cache: 'no-store'
+  });
   const data = await productData.json();
   return (
       <div className="p-12">
