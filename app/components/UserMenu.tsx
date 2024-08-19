@@ -12,18 +12,15 @@ import MenuItem from "./MenuItem";
 
 const UserMenu = () =>{
     const [isOpen, setIsOpen] = useState(false);
-    const {logout, isLoggedIn} = useAuth();
-
-    const [value, setValue] = useState(false);
+    const {logout, isLoggedIn, setIsLoggedIn} = useAuth();
 
     useEffect(() => {
-    // if (typeof window !== 'undefined') {
-      const storedValue = isLoggedIn;
-      if (storedValue) {
-        setValue(storedValue);
-      }
-    // }
-    }, []);
+        if (typeof window !== 'undefined') {
+            const isUserLoggedIn = localStorage.getItem("isUserLoggedIn");
+            if (isUserLoggedIn=='true')
+                setIsLoggedIn(true);
+            }
+    }, [isOpen, setIsLoggedIn]);
 
     const toggleOpen = useCallback(() =>{
         setIsOpen((prev) => !prev)
@@ -37,7 +34,7 @@ const UserMenu = () =>{
     </div>
     {isOpen &&(
         <div className="absolute rounded-md shadow-md w-[170px] bg-white overflow-hidden right-0 top-12 text-sm flex flex-col cursor-pointer">
-           {value ? ( <div>
+           {isLoggedIn ? ( <div>
                 <Link href="/">
                     <MenuItem onClick={toggleOpen}>My Orders</MenuItem>
                 </Link>
