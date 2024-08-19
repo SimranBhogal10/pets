@@ -2,8 +2,7 @@ import Container from "@/app/components/Container";
 import HomeBanner from "@/app/components/HomeBanner";
 
 import ProductList from "./listing/ProductList";
-import { Suspense } from "react"; // Suspense wouldn't be idea.
-
+import { Suspense } from "react"; 
 export default async function Home() {
 
   const productData = await fetch(`https://storage.googleapis.com/testing-sb6.appspot.com/SB6/Users/simran/products.json`);
@@ -12,7 +11,9 @@ export default async function Home() {
       <div className="p-12">
         <Container>
             <HomeBanner />
-            <ProductList data = {data}/>
+            <Suspense fallback={<div>Loading...</div>}>
+              <ProductList data = {data}/>
+            </Suspense>
         </Container>
       </div>
   )

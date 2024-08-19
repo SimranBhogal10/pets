@@ -2,7 +2,7 @@
 
 import ProductCard from "@/app/components/ProductCard";
 import { ProductData } from "@/global.types";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 type Product = {
@@ -49,42 +49,3 @@ const ProductList = ({data}: any)=> {
 
 export default ProductList;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const params = useSearchParams();
-    // const router = useRouter();
-    // let category = params?.get('category');
-
-    // const [products, setProducts] = useState([]);
-
-    // useEffect(() => {
-    //     if (!category) {
-    //       category ='All';
-    //     }
-    
-    //     const fetchProducts = async () => {
-    //       try {
-    //         const response = await fetch(`/listing?category=${category}`);
-    //         if (!response.ok) {
-    //           throw new Error(`Error: ${response.status}`);
-    //         }
-    //         const data = await response.json();
-    //         setProducts(data.products);
-    //       } catch (error) {
-    //         console.log(error);
-    //       }
-    //     };
-    
-    //     fetchProducts();
-    //   }, [category, router]);
