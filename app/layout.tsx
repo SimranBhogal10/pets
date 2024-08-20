@@ -8,6 +8,7 @@ import Footer from "@/app/components/Footer/Footer";
 import NavBar from "@/app/components/NavBar";
 import AuthProvider from "@/providers/AuthProvider";
 import { Suspense } from "react";
+import Head from "next/head";
 
 const maven = Maven_Pro({ subsets: ["latin"] });
 
@@ -23,6 +24,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+       <Head>
+        <title>VR Pets - Pet Store</title>
+        <meta name="description" content={`Buy products for your fury friends. Best quality at the best price.`} />
+
+        <meta property="og:title" content={`VR Pets`} />
+        <meta property="og:description" content={`Buy products for your fury friends. Best quality at the best price.`} />
+        <meta property="og:image" content='/assets/clogo.png' />
+        <meta property="og:url" content='https://pets-umber.vercel.app/_next/image?url=%2Fassets%2Fclogo.png&w=256&q=75' />
+        <meta property="og:type" content="product" />
+
+        <meta property="og:url" content="https://pets-umber.vercel.app/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="VR Pets" />
+        <meta property="og:description" content="Your One-Stop Pet Shop"/ >
+        <meta property="og:image" content="https://pets-umber.vercel.app/_next/image?url=%2Fassets%2Fclogo.png&w=256&q=75" />
+
+        <meta name="twitter:title" content={`VR Pets`} />
+        <meta name="twitter:description" content={`Buy products for your fury friends. Best quality at the best price.`} />
+        <meta name="twitter:image" content='https://pets-umber.vercel.app/_next/image?url=%2Fassets%2Fclogo.png&w=256&q=75' />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
       <body className={maven.className}>
         <Toaster toastOptions={{
           style:{
