@@ -4,6 +4,7 @@ import HomeBanner from "@/app/components/HomeBanner";
 import ProductList from "./listing/ProductList";
 import { Suspense } from "react"; 
 import { NextResponse } from "next/server";
+
 export default async function Home() {
 
   if(!process.env.NEXT_PUBLIC_CLOUD_STORAGE_URL){
