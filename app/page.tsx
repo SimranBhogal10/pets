@@ -15,7 +15,7 @@ export default async function Home() {
   });
   const data = await productData.json();
   return (
-      <div className="p-12">
+      <div className="sm:pt-6 md:p-12">
         <Container>
             <HomeBanner />
             <Suspense fallback={<div>Loading...</div>}>

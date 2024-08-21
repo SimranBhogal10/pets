@@ -57,7 +57,7 @@ const Category: React.FC<CategoryProps> = ({label, icon:Icon, selected}) =>{
         tabIndex={0}
         aria-pressed={selected}>
             <Icon size={20}/>
-            <div className="font-medium text-md">{label}</div>
+            <div className="hidden font-medium text-md md:block">{label}</div>
         </div>
     )
 }
