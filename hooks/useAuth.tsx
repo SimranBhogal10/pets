@@ -75,7 +75,7 @@ export const AuthContextProvider = (children: Props) =>{
       setIsLoggedIn(false);
       localStorage.setItem('isUserLoggedIn', 'false');
       console.log('inside log out',)
-      router.push('/login');
+      // router.push('/login');
     }; 
 
     return <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn, login, logout, signup, isLoading }} {...children} />

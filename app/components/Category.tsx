@@ -44,8 +44,18 @@ const Category: React.FC<CategoryProps> = ({label, icon:Icon, selected}) =>{
         }
     },[label, params, router])
 
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          handleClick();
+        }
+      };
+
     return (
-        <div onClick= {handleClick} className={`flex items-center justify-center text-center gap-1 p-2 border-b-2 hover:text-indigo-800 transition cursor-pointer ${selected ? 'border-b-indigo-800 text-indigo-800': 'border-transparent text-slate-500'}`}>
+        <div onClick= {handleClick} className={`flex items-center justify-center text-center gap-1 p-2 border-b-2 hover:text-indigo-800 transition cursor-pointer ${selected ? 'border-b-indigo-800 text-indigo-800': 'border-transparent text-slate-500'}`} onKeyDown={handleKeyDown}
+        role="button"
+        tabIndex={0}
+        aria-pressed={selected}>
             <Icon size={20}/>
             <div className="font-medium text-md">{label}</div>
         </div>
