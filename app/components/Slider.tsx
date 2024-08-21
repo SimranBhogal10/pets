@@ -24,7 +24,8 @@ const Slider = () => {
     return (
         <div role="region" aria-roledescription="carousel" aria-label="Home banner carousel" aria-live="polite">
             {homeBanner.map((item, index) => (
-                <div key={item.title} className={`${index == activeImage ? "grid place-items-center grid-cols-2 w-full mx-auto" : "hidden"}`}  tabIndex={index === activeImage ? 0 : -1}
+                <div key={item.title} className={`${index == activeImage ? "grid place-items-center grid-cols-2 w-full mx-auto" : "hidden"}`}  
+                tabIndex={index === activeImage ? 0 : -1}
                 aria-hidden={index !== activeImage}>
                     <motion.div
                         initial={{
